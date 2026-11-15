@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Luciole pour Linux</title>
+<title>Luciole</title>
 <style>
   :root {
     --bg: #faf8fc; --fg: #1d1a24; --soft: #5b5566; --card: #ffffff; --line: #e4dfeb;
@@ -25,7 +25,8 @@
   h1 { font-size: 1.9rem; margin: 0 0 4px; }
   .sub { color: var(--soft); margin: 0 0 24px; }
   h2 { font-size: 1.15rem; margin: 32px 0 10px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px;
+          margin: 0 0 12px; }
   .download {
     display: inline-block; background: var(--accent); color: var(--accent-fg); text-decoration: none;
     font-weight: 600; padding: 12px 20px; border-radius: 10px; margin: 6px 0 10px;
@@ -48,7 +49,8 @@
 <main>
   <h1>Luciole</h1>
   <p class="sub">Un jeu de plateforme : Lulu, une petite veilleuse à la lanterne, traverse une forêt qui ne dort
-    plus et ramasse les lucioles pour la rendormir. Version d'essai pour Linux, au clavier ou à la manette.</p>
+    plus et ramasse les lucioles pour la rendormir. Version d'essai pour Windows et Linux, au clavier ou à la
+    manette.</p>
 
   <div class="shots">
     <img src="fleur.jpg" alt="Lulu debout dans une fleur de nuit" width="800" height="600">
@@ -57,7 +59,12 @@
   </div>
 
   <div class="card">
-    <a class="download" href="luciole_sommeil_linux.tar.gz" download>Télécharger luciole_sommeil_linux.tar.gz</a>
+    <a class="download" href="luciole_sommeil_windows.zip" download>Télécharger pour Windows (.zip)</a>
+    <div class="meta">13 Mo · Windows 10 ou 11, 64 bits, tout processeur Intel ou AMD<br>
+      SHA-256 : 399e8c9564978cedf40231d4a7b1716ffa36061e9945b9dd955f1a5b604721d3</div>
+  </div>
+  <div class="card">
+    <a class="download" href="luciole_sommeil_linux.tar.gz" download>Télécharger pour Linux (.tar.gz)</a>
     <div class="meta">12 Mo · Linux 64 bits (x86-64), tout processeur Intel ou AMD<br>
       SHA-256 : 5fa34d8ab790f63b9ae63527cf47b36edb073778892370337977f16ba26bbdd2</div>
   </div>
@@ -65,7 +72,20 @@
   <p class="note">C'est une version de travail : un seul niveau, écrit pour essayer des idées (les créatures qui
     s'endorment, la fleur, les berceaux suspendus, les phrases du conte). Elle n'est pas le jeu fini.</p>
 
-  <h2>Installer et lancer</h2>
+  <h2>Installer et lancer sous Windows</h2>
+  <ul>
+    <li>décompresser le zip (clic droit, « Extraire tout ») ;</li>
+    <li>dans le dossier <code>luciole_sommeil</code>, double-cliquer sur <code>luciole.exe</code> (plein écran) ou
+      sur <code>Luciole (fenetre).bat</code> (une fenêtre de 1280 x 720) ;</li>
+    <li>au premier lancement, Windows peut afficher « Windows a protégé votre ordinateur » (le programme n'est pas
+      signé) : « Informations complémentaires », puis « Exécuter quand même ».</li>
+  </ul>
+  <p>Rien à installer. Il faut une carte graphique de 2012 ou après, avec un pilote à jour. Si le jeu se ferme
+    tout de suite, le fichier <code>stderr.txt</code> créé dans le dossier dit pourquoi.</p>
+  <p class="note">La version Windows est toute récente : elle a été essayée sur deux PC sous Windows 10, tous deux
+    à carte graphique NVIDIA. Sur une carte AMD ou Intel, elle n'a pas encore été essayée.</p>
+
+  <h2>Installer et lancer sous Linux</h2>
   <pre>tar xzf luciole_sommeil_linux.tar.gz
 cd luciole_sommeil
 ./jouer.sh            # plein écran
@@ -73,7 +93,7 @@ cd luciole_sommeil
   <p>Autres mots possibles après <code>./jouer.sh</code> : <code>notitle</code> (le niveau tout de suite, sans
     l'écran titre), <code>mute</code> (sans musique ni bruitages).</p>
 
-  <h2>Ce qu'il faut sur le PC</h2>
+  <h2>Ce qu'il faut sur un PC Linux</h2>
   <ul>
     <li>un Linux 64 bits de 2022 ou après : la bibliothèque C du système doit être en version 2.34 au moins
       (Ubuntu 22.04, Debian 12, Fedora 35 et plus récents) ;</li>
