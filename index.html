@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Luciole pour Linux</title>
+<style>
+  :root {
+    --bg: #faf8fc; --fg: #1d1a24; --soft: #5b5566; --card: #ffffff; --line: #e4dfeb;
+    --accent: #b8741a; --accent-fg: #ffffff; --code: #f1edf6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17141d; --fg: #ece8f2; --soft: #a9a2b5; --card: #211d29; --line: #352f40;
+      --accent: #e3a04a; --accent-fg: #1a1205; --code: #2a2533;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 56px; }
+  h1 { font-size: 1.9rem; margin: 0 0 4px; }
+  .sub { color: var(--soft); margin: 0 0 24px; }
+  h2 { font-size: 1.15rem; margin: 32px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .download {
+    display: inline-block; background: var(--accent); color: var(--accent-fg); text-decoration: none;
+    font-weight: 600; padding: 12px 20px; border-radius: 10px; margin: 6px 0 10px;
+  }
+  .meta { color: var(--soft); font-size: 0.9rem; overflow-wrap: anywhere; }
+  code, pre { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.9rem; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code); padding: 12px 14px; border-radius: 8px; overflow-x: auto; margin: 8px 0; }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  .note { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; color: var(--soft); }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 0 0 24px; }
+  .shots img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); }
+  table { border-collapse: collapse; width: 100%; }
+  td { padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child { white-space: nowrap; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Luciole</h1>
+  <p class="sub">Un jeu de plateforme : Lulu, une petite veilleuse à la lanterne, traverse une forêt qui ne dort
+    plus et ramasse les lucioles pour la rendormir. Version d'essai pour Linux, au clavier ou à la manette.</p>
+
+  <div class="shots">
+    <img src="fleur.jpg" alt="Lulu debout dans une fleur de nuit" width="800" height="600">
+    <img src="berceau.jpg" alt="Lulu dans un berceau suspendu au-dessus du vide" width="800" height="600">
+    <img src="conte.jpg" alt="Une phrase du conte écrite sur le ciel" width="800" height="600">
+  </div>
+
+  <div class="card">
+    <a class="download" href="luciole_sommeil_linux.tar.gz" download>Télécharger luciole_sommeil_linux.tar.gz</a>
+    <div class="meta">12 Mo · Linux 64 bits (x86-64), tout processeur Intel ou AMD<br>
+      SHA-256 : 5fa34d8ab790f63b9ae63527cf47b36edb073778892370337977f16ba26bbdd2</div>
+  </div>
+
+  <p class="note">C'est une version de travail : un seul niveau, écrit pour essayer des idées (les créatures qui
+    s'endorment, la fleur, les berceaux suspendus, les phrases du conte). Elle n'est pas le jeu fini.</p>
+
+  <h2>Installer et lancer</h2>
+  <pre>tar xzf luciole_sommeil_linux.tar.gz
+cd luciole_sommeil
+./jouer.sh            # plein écran
+./jouer.sh window     # dans une fenêtre de 1280 x 720</pre>
+  <p>Autres mots possibles après <code>./jouer.sh</code> : <code>notitle</code> (le niveau tout de suite, sans
+    l'écran titre), <code>mute</code> (sans musique ni bruitages).</p>
+
+  <h2>Ce qu'il faut sur le PC</h2>
+  <ul>
+    <li>un Linux 64 bits de 2022 ou après : la bibliothèque C du système doit être en version 2.34 au moins
+      (Ubuntu 22.04, Debian 12, Fedora 35 et plus récents) ;</li>
+    <li>la bibliothèque SDL 2 : <code>sudo apt install libsdl2-2.0-0</code> (Debian, Ubuntu) ou
+      <code>sudo dnf install SDL2</code> (Fedora) ;</li>
+    <li>une carte graphique qui sait OpenGL ES 3 (celles des dix dernières années sous Linux).</li>
+  </ul>
+
+  <h2>Les touches</h2>
+  <table>
+    <tr><td>Flèches gauche et droite</td><td>courir ; dans un berceau, pousser dans le sens où il va lui donne de l'élan</td></tr>
+    <tr><td>X ou C</td><td>sauter (plus haut en gardant la touche) ; sur une créature : elle s'endort</td></tr>
+    <tr><td>Flèche bas</td><td>s'accroupir, regarder en bas</td></tr>
+    <tr><td>Entrée</td><td>valider dans le menu</td></tr>
+    <tr><td>Échap</td><td>quitter</td></tr>
+  </table>
+  <p>Une manette branchée fonctionne aussi : croix ou stick pour courir, A ou B pour sauter, Select + Start pour
+    quitter.</p>
+
+  <h2>Ce qu'on peut essayer</h2>
+  <ul>
+    <li><strong>Les Grognons</strong> (les champignons) : sauter dessus les endort. Endormis, ce sont des
+      tremplins : en gardant le saut, on monte plus haut qu'avec un saut.</li>
+    <li><strong>Les Samares</strong> (les graines ailées) : endormies, elles descendent, se plantent, et une fleur
+      de nuit pousse. On peut monter dessus.</li>
+    <li><strong>Les berceaux suspendus</strong> : ils se balancent au-dessus du vide et emportent Lulu. Sauter
+      quand le berceau va vite envoie beaucoup plus loin.</li>
+  </ul>
+
+  <p class="meta">Luciole est écrit en Bleetz, un langage de programmation en cours de développement. La police du
+    conte est Gabriela (SIL Open Font Licence, jointe dans l'archive).</p>
+</main>
+</body>
+</html>
